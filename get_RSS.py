@@ -8,7 +8,7 @@ from email.utils import parsedate_to_datetime
 
 # --- 配置区域 ---
 OUTPUT_FILE = "filtered_feed.xml"  # 输出文件
-MAX_ITEMS = 200                    # RSS中保留的最大条目数（滚动窗口）
+MAX_ITEMS = 10000                    # RSS中保留的最大条目数（滚动窗口）
 JOURNALS_FILE = 'journals.dat'
 KEYWORDS_FILE = 'keywords.dat'
 # ----------------
