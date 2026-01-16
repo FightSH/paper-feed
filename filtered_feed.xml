@@ -1,1 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>My Customized Papers</title><link>https://github.com/your_username/your_repo</link><description>Aggregated research papers</description><language>en-US</language><lastBuildDate>Fri, 16 Jan 2026 08:55:47 GMT</lastBuildDate><generator>rfeed v1.1.1</generator><docs>https://github.com/svpino/rfeed/blob/master/README.md</docs><item><title>[cs.LG updates on arXiv.org] Multilingual-To-Multimodal (M2M): Unlocking New Languages with Monolingual Text</title><link>https://arxiv.org/abs/2601.10096</link><description>arXiv:2601.10096v1 Announce Type: new 
+Abstract: Multimodal models excel in English, supported by abundant image-text and audio-text data, but performance drops sharply for other languages due to limited multilingual multimodal resources. Existing solutions rely heavily on machine translation, while advances in multilingual text modeling remain underutilized. We introduce METAL, a lightweight alignment method that learns only a few linear layers using English text alone to map multilingual text embeddings into a multimodal space. Despite its simplicity, METAL matches baseline performance in English (94.9 percent Recall at 10) and achieves strong zero-shot transfer (89.5 percent Recall at 10 averaged across 11 languages, 10 unseen) on XTD text-to-image retrieval. Qualitative t-SNE visualizations show that multilingual embeddings align tightly with multimodal representations, while weight analysis reveals that the transformation reshapes embedding geometry rather than performing trivial rotations. Beyond image-text retrieval, METAL generalizes to audio-text retrieval and cross-lingual text-to-image generation. We release code and checkpoints at https://github.com/m2m-codebase/M2M , as well as multilingual evaluation datasets including MSCOCO Multilingual 30K (https://huggingface.co/datasets/piyushsinghpasi/mscoco-multilingual-30k ), AudioCaps Multilingual (https://huggingface.co/datasets/piyushsinghpasi/audiocaps-multilingual ), and Clotho Multilingual (https://huggingface.co/datasets/piyushsinghpasi/clotho-multilingual ), to facilitate further research.</description><author>cs.LG updates on arXiv.org</author><pubDate>Fri, 16 Jan 2026 05:00:00 GMT</pubDate><guid isPermaLink="true">oai:arXiv.org:2601.10096v1</guid></item><item><title>[Google AI Blog] Croissant: a metadata format for ML-ready datasets</title><link>http://blog.research.google/2024/03/croissant-metadata-format-for-ml-ready.html</link><description>&lt;span class="byline-author"&gt;Posted by Omar Benjelloun, Software Engineer, Google Research, and Peter Mattson, Software Engineer, Google Core ML and President, MLCommons Association&lt;/span&gt;
 
+&lt;img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj09uSTHgWmPgOkD9W1nZZj5i8uW_-pgxm-T1O5PSacF-EKvHIeIwhMr7Rgft7O3A2Rk94GWe8WboO3dUlxrqt1xz9x4I2aMKJxCUtUkR2eukbsIa8xVyAAN_LJJyMABxRqJuktFkyfhoWPDMQK3O-XgbQNJXzAILlWl3su0fd-Q_uZ-8r5r_uAU2P4srnP/s1600/CroissantHero.png" style="display: none;" /&gt;
+
+
+
+&lt;p&gt;
+Machine learning (ML) practitioners looking to reuse existing datasets to train an ML model often spend a lot of time understanding the data, making sense of its organization, or figuring out what subset to use as features. So much time, in fact, that progress in the field of ML is hampered by a fundamental obstacle: the wide variety of data representations. 
+&lt;/p&gt;
+&lt;a name="more"&gt;&lt;/a&gt;
+
+
+&lt;p&gt;
+ML datasets cover a broad range of content types, from text and structured data to images, audio, and video. Even within datasets that cover the same types of content, every dataset has a unique &lt;em&gt;ad hoc&lt;/em&gt; arrangement of files and data formats. This challenge reduces productivity throughout the entire ML development process, from finding the data to training the model. It also impedes development of badly needed tooling for working with datasets. 
+&lt;/p&gt;
+&lt;p&gt;
+There are general purpose metadata formats for datasets such as &lt;a href="http://schema.org/Dataset"&gt;schema.org&lt;/a&gt; and &lt;a href="https://www.w3.org/TR/vocab-dcat-3/"&gt;DCAT&lt;/a&gt;. However, these formats were designed for data discovery rather than for the specific needs of ML data, such as the ability to extract and combine data from structured and unstructured sources, to include metadata that would enable &lt;a href="https://ai.google/responsibility/responsible-ai-practices/"&gt;responsible use&lt;/a&gt; of the data, or to describe ML usage characteristics such as defining training, test and validation sets. 
+&lt;/p&gt;
+&lt;p&gt;
+Today, we're introducing &lt;a href="https://mlcommons.org/croissant"&gt;Croissant&lt;/a&gt;, a new metadata format for ML-ready datasets. Croissant was developed collaboratively by a community from industry and academia, as part of the &lt;a href="https://mlcommons.org/"&gt;MLCommons&lt;/a&gt; effort. The Croissant format doesn't change how the actual data is represented (e.g., image or text file formats) — it provides a standard way to describe and organize it. Croissant builds upon &lt;a href="https://schema.org/"&gt;schema.org&lt;/a&gt;, the de facto standard for publishing structured data on the Web, which is already used by over 40M datasets. Croissant augments it with comprehensive layers for ML relevant metadata, data resources, data organization, and default ML semantics.
+&lt;/p&gt;
+&lt;p&gt;
+In addition, we are announcing support from major tools and repositories: Today, three widely used collections of ML datasets — &lt;a href="http://www.kaggle.com/datasets"&gt;Kaggle&lt;/a&gt;, &lt;a href="https://huggingface.co/datasets?other=croissant&amp;amp;sort=trending"&gt;Hugging Face&lt;/a&gt;, and &lt;a href="https://openml.org/search?type=data"&gt;OpenML&lt;/a&gt; — will begin supporting the Croissant format for the datasets they host; the &lt;a href="http://g.co/datasetsearch"&gt;Dataset Search&lt;/a&gt; tool lets users search for Croissant datasets across the Web; and popular ML frameworks, including &lt;a href="https://www.tensorflow.org/"&gt;TensorFlow&lt;/a&gt;, &lt;a href="https://pytorch.org/"&gt;PyTorch&lt;/a&gt;, and &lt;a href="https://github.com/google/jax"&gt;JAX&lt;/a&gt;, can load Croissant datasets easily using the &lt;a href="https://www.tensorflow.org/datasets"&gt;TensorFlow Datasets&lt;/a&gt; (TFDS) package.
+&lt;/p&gt;
+
+
+&lt;div style="line-height: 40%;"&gt;
+    &lt;br /&gt;
+&lt;/div&gt;
+&lt;h2&gt;Croissant&lt;/h2&gt;
+
+
+&lt;p&gt;
+This 1.0 release of Croissant includes a complete &lt;a href="https://mlcommons.org/croissant/1.0"&gt;specification&lt;/a&gt; of the format, a set of &lt;a href="https://github.com/mlcommons/croissant/tree/main/datasets"&gt;example datasets&lt;/a&gt;, an open source &lt;a href="https://github.com/mlcommons/croissant/tree/main/python/mlcroissant"&gt;Python library&lt;/a&gt; to validate, consume and generate Croissant metadata, and an open source &lt;a href="https://github.com/mlcommons/croissant/tree/main/editor"&gt;visual editor&lt;/a&gt; to load, inspect and create Croissant dataset descriptions in an intuitive way.
+&lt;/p&gt;
+&lt;p&gt;
+Supporting Responsible AI (RAI) was a key goal of the Croissant effort from the start. We are also releasing the first version of the &lt;a href="https://mlcommons.org/croissant/RAI/1.0"&gt;Croissant RAI vocabulary&lt;/a&gt; extension, which augments Croissant with key properties needed to describe important RAI use cases such as data life cycle management, data labeling, participatory data, ML safety and fairness evaluation, explainability, and compliance.
+&lt;/p&gt;
+
+&lt;div style="line-height: 40%;"&gt;
+    &lt;br /&gt;
+&lt;/div&gt;
+&lt;h2&gt;Why a shared format for ML data?&lt;/h2&gt;
+&lt;p&gt;
+The majority of ML work is actually data work. The training data is the “code” that determines the behavior of a model. Datasets can vary from a collection of text used to train a large language model (LLM) to a collection of driving scenarios (annotated videos) used to train a car’s collision avoidance system. However, the steps to develop an ML model typically follow the same iterative data-centric process: (1) find or collect data, (2) clean and refine the data, (3) train the model on the data, (4) test the model on more data, (5) discover the model does not work, (6) analyze the data to find out why, (7) repeat until a workable model is achieved. Many steps are made harder by the lack of a common format. This “data development burden” is especially heavy for resource-limited research and early-stage entrepreneurial efforts. 
+&lt;/p&gt;
+&lt;p&gt;
+The goal of a format like Croissant is to make this entire process easier. For instance, the metadata can be leveraged by search engines and dataset repositories to make it easier to find the right dataset. The data resources and organization information make it easier to develop tools for cleaning, refining, and analyzing data. This information and the default ML semantics make it possible for ML frameworks to use the data to train and test models with a minimum of code. Together, these improvements substantially reduce the data development burden.
+&lt;/p&gt;
+&lt;p&gt;
+Additionally, dataset authors care about the discoverability and ease of use of their datasets. Adopting Croissant improves the value of their datasets, while only requiring a minimal effort, thanks to the available creation tools and support from ML data platforms.
+&lt;/p&gt;
+
+
+
+&lt;div style="line-height: 40%;"&gt;
+    &lt;br /&gt;
+&lt;/div&gt;
+&lt;h2&gt;What can Croissant do today?&lt;/h2&gt;
+
+
+&lt;table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto;"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style="text-align: center;"&gt;&lt;a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgN40ZSjgTFRIVwAwN2OXIn4vQhmshC8VhcKx-ijY-sCQBH9qDkV3nrFz_YapZ0iAD-Svkyxblt6lpJFFHa4JfDqfY6RIL0RnVhtgBlLyh-1DnH8DUz7-TUSdSUIg5V2piqjmQ5Dw9MISeeSBvnMsie8jRrXOeHXfcTGQi0AHIeOYFuHYwDFSyRmBT8BHum/s908/image1.png" style="margin-left: auto; margin-right: auto;"&gt;&lt;img border="0" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgN40ZSjgTFRIVwAwN2OXIn4vQhmshC8VhcKx-ijY-sCQBH9qDkV3nrFz_YapZ0iAD-Svkyxblt6lpJFFHa4JfDqfY6RIL0RnVhtgBlLyh-1DnH8DUz7-TUSdSUIg5V2piqjmQ5Dw9MISeeSBvnMsie8jRrXOeHXfcTGQi0AHIeOYFuHYwDFSyRmBT8BHum/s16000/image1.png" /&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class="tr-caption" style="text-align: center;"&gt;The Croissant ecosystem: Users can Search for Croissant datasets, download them from major repositories, and easily load them into their favorite ML frameworks. They can create, inspect and modify Croissant metadata using the Croissant editor.&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+
+
+
+
+&lt;p&gt;
+Today, users can find Croissant datasets at:
+&lt;/p&gt;
+&lt;ul&gt;
+
+&lt;li&gt;Google &lt;a href="https://datasetsearch.research.google.com/"&gt;Dataset Search&lt;/a&gt;, which offers a Croissant filter.
+
+&lt;/li&gt;&lt;li&gt;&lt;a href="https://huggingface.co/datasets?other=croissant&amp;amp;sort=trending"&gt;HuggingFace&lt;/a&gt;
+
+&lt;/li&gt;&lt;li&gt;&lt;a href="http://kaggle.com/datasets"&gt;Kaggle&lt;/a&gt;
+
+&lt;/li&gt;&lt;li&gt;&lt;a href="https://openml.org/search?type=data"&gt;OpenML&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+With a Croissant dataset, it is possible to:
+&lt;/p&gt;
+&lt;ul&gt;
+
+&lt;li&gt;Ingest data easily via &lt;a href="https://www.tensorflow.org/datasets"&gt;TensorFlow Datasets&lt;/a&gt; for use in popular ML frameworks like &lt;a href="https://www.tensorflow.org/"&gt;TensorFlow&lt;/a&gt;, &lt;a href="https://pytorch.org/"&gt;PyTorch&lt;/a&gt;, and &lt;a href="https://github.com/google/jax"&gt;JAX&lt;/a&gt;.
+
+&lt;/li&gt;&lt;li&gt;Inspect and modify the metadata using the &lt;a href="https://huggingface.co/spaces/MLCommons/croissant-editor"&gt;Croissant editor UI&lt;/a&gt; (&lt;a href="https://github.com/mlcommons/croissant/tree/main/editor"&gt;github&lt;/a&gt;).
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+To publish a Croissant dataset, users can:
+&lt;/p&gt;
+&lt;ul&gt;
+
+&lt;li&gt;Use the &lt;a href="https://huggingface.co/spaces/MLCommons/croissant-editor"&gt;Croissant editor UI&lt;/a&gt; (&lt;a href="https://github.com/mlcommons/croissant/tree/main/editor"&gt;github&lt;/a&gt;) to generate a large portion of Croissant metadata automatically by analyzing the data the user provides, and to fill important metadata fields such as RAI properties.
+
+&lt;/li&gt;&lt;li&gt;Publish the Croissant information as part of their dataset Web page to make it discoverable and reusable.
+
+&lt;/li&gt;&lt;li&gt;Publish their data in one of the repositories that support Croissant, such as Kaggle, HuggingFace and OpenML, and automatically generate Croissant metadata.
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;div style="line-height: 40%;"&gt;
+    &lt;br /&gt;
+&lt;/div&gt;
+&lt;h2&gt;Future direction&lt;/h2&gt;
+
+
+&lt;p&gt;
+We are excited about Croissant's potential to help ML practitioners, but making this format truly useful requires the support of the community. We encourage dataset creators to consider providing Croissant metadata. We encourage platforms hosting datasets to provide Croissant files for download and embed Croissant metadata in dataset Web pages so that they can be made discoverable by dataset search engines. Tools that help users work with ML datasets, such as labeling or data analysis tools should also consider supporting Croissant datasets. Together, we can reduce the data development burden and enable a richer ecosystem of ML research and development.  
+&lt;/p&gt;
+&lt;p&gt;
+We encourage the community to &lt;a href="http://mlcommons.org/croissant"&gt;join us&lt;/a&gt; in contributing to the effort.
+&lt;/p&gt;
+
+
+&lt;div style="line-height: 40%;"&gt;
+    &lt;br /&gt;
+&lt;/div&gt;
+&lt;h2&gt;Acknowledgements&lt;/h2&gt;
+&lt;p&gt;
+&lt;em&gt;Croissant was developed by the &lt;a href="https://datasetsearch.research.google.com/"&gt;Dataset Search&lt;/a&gt;, &lt;a href="https://www.kaggle.com/"&gt;Kaggle&lt;/a&gt; and &lt;a href="https://www.tensorflow.org/datasets"&gt;TensorFlow Datasets&lt;/a&gt; teams from Google, as part of an &lt;a href="http://mlcommons.org"&gt;MLCommons&lt;/a&gt; community working group, which also includes contributors from these organizations: Bayer, cTuning Foundation, DANS-KNAW, Dotphoton, Harvard, Hugging Face, Kings College London, LIST, Meta, NASA, North Carolina State University, Open Data Institute, Open University of Catalonia, Sage Bionetworks, and TU Eindhoven.&lt;/em&gt;
+&lt;/p&gt;</description><author>Google AI Blog</author><pubDate>Wed, 06 Mar 2024 18:26:00 GMT</pubDate><guid isPermaLink="true">tag:blogger.com,1999:blog-8474926331452026626.post-8393293208018757284</guid></item></channel></rss>
